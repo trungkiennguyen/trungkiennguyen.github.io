@@ -1,0 +1,45 @@
+body{
+	width: 500px;
+	margin: auto;
+	font-family: 'Baloo Bhaina', cursive;
+	font-size: 20px;
+}
+.header{
+	text-align: center;
+	background-color: #debd9b;
+}
+h1{
+	margin-bottom: 0px;
+    margin-top: 0px;
+}
+#tensp{
+	margin-top: 0px;
+	font-size: 30px;
+}
+a:link{
+	color: #392715;
+}
+a:visited{
+	font-weight: bold;
+	color: #a9733e;
+}
+a:hover{
+	font-size: 40px;
+	font-weight: bold;
+	color: #392715;
+}
+.chitiet{
+	background-color: #debd9b;
+}
+a{
+	text-decoration: none;
+}
+p{
+	text-align: center;
+}
+img{
+	max-width: 500px;
+}
+ul{
+	float: 20px left;
+}
