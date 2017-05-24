@@ -100,8 +100,7 @@
 }
 
 .image img:hover {
-    opacity: .3
-        ;
+    opacity: .3;
     transition: opacity;
     transition-timing-function: ease-out;
     transition-duration: 5000ms;
