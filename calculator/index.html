@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body style="background-color: grey;">
+	<div class="wraper">
+		<h1>CALCULATOR</h1>
+		<div class="screen">
+			<input type="text" id="display" readonly><br>
+			<input type="text" id="result" readonly>
+		</div>
+		<div class="row">
+			<button class="button" id="AC" value="clear" onclick="cleardisplay()">AC</button>
+			<button class="button" id="DEL" value="del" onclick='del()'>DEL</button>
+			<button class="button" id="binhphuong" value="bp" onclick='binhphuong()'>x<sup>2</sup></button>
+		</div>
+		<div class="row">
+			<button class="button" id="phantram" value="pt" onclick='phantram()'>%</button>
+			<button class="button" id="canb2" value="canb2" onclick='canb2()'>&radic;</button>
+			<button class="button" value="gt" onclick='giaithua()'>!</button>
+			<button class="button" value="+" onclick='display(this.value)'>+</button>
+		</div>
+		<div class="row">
+			<button class="button" value="7" onclick='display(this.value)'>7</button>
+			<button class="button" value="8" onclick='display(this.value)'>8</button>
+			<button class="button" value="9" onclick='display(this.value)'>9</button>
+			<button class="button" value="-" onclick='display(this.value)'>-</button>
+		</div>
+		<div class="row">
+			<button class="button" value="4" onclick='display(this.value)'>4</button>
+			<button class="button" value="5" onclick='display(this.value)'>5</button>
+			<button class="button" value="6" onclick='display(this.value)'>6</button>
+			<button class="button" value="*" onclick='display(this.value)'>x</button>
+		</div>
+		<div class="row">
+
+			<button class="button" value="1" onclick='display(this.value)'>1</button>
+			<button class="button" value="2" onclick='display(this.value)'>2</button>
+			<button class="button" value="3" onclick='display(this.value)'>3</button>
+			<button class="button" value="/" onclick='display(this.value)'>÷</button>
+		</div>
+		<div class="row" style="padding-bottom: 20px;">
+			<button class="button" id="sokhong" value="0" onclick='display(this.value)'>0</button>
+			<button class="button" value="." onclick='display(this.value)'>.</button>
+			<button class="button" value="=" onclick='mathh()'>=</button>
+		</div>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
