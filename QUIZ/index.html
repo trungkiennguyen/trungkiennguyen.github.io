@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QUIZ</title>
+	<link href="https://fonts.googleapis.com/css?family=Pattaya&amp;subset=cyrillic,vietnamese" rel="stylesheet">
+</head>
+<style>
+	*{
+		box-sizing: border-box;
+		font-family: 'Pattaya', sans-serif;
+	}
+	body{
+		margin: 0;
+		padding: 0;
+		background-image: url('background.jpg');
+		font-size: 30px;
+	}
+	main{
+		padding-top: 20px;
+		width: 60%;
+		margin: auto;
+		text-align: center;
+	}
+	h1{
+		margin-top: 0;
+	}
+	button{
+		width: 48%;
+		height: 50px;
+		margin-bottom: 20px;
+		opacity: 0.6;
+		border-radius: 25px;
+		font-weight: bold;
+		font-size: 25px;
+		background-color: grey;
+	}
+	button:hover{
+		transform: scale(1.05);
+		opacity: 1;
+	}
+	#next{
+		width: 150px;
+		margin-top: 25px;
+	}
+</style>
+<body>
+	<main>
+		<h1>QUIZ</h1>
+		<p id="text" style="color: #b71212;">Trả lời đúng tất cả các câu hỏi có quà đó nha</p>
+		<img src="icon.jpg" alt="" style="display: none;" id="lose"><br>
+		<p id="ask">Arsène Wenger trở thành HLV ARSENAL từ năm nào?</p>
+		<div id="answer">
+			<button onclick="changecolor(this)" id="A" value="A">A: 1995</button>
+			<button onclick="changecolor(this)" id="B" value="B">B: 2000</button><br>
+			<button onclick="changecolor(this)" id="C" value="C">C: 2017</button>
+			<button onclick="changecolor(this)" id="D" value="D">D: 1996</button>
+		</div>
+		<div><button onclick="nextquiz()" id="next">Tiếp Theo</button></div>
+		<button onclick="choilai()" style="display: none;" id="choilai">Chơi Lại</button>
+		
+	</main>
+</body>
+<script>
+	var q0={
+		ask : 'Arsène Wenger trở thành HLV ARSENAL từ năm nào?',
+		choice :['A: 1995','B: 2000','C: 2017','D: 1996'],
+		key : 'D'
+	}
+	var q1={
+		ask : 'ARSENAL đã dành bao nhiêu danh hiệu FA Cup?',
+		choice :['A: 1','B: 10','C: 7','D: 3'],
+		key : 'C'
+	}
+	var q2={
+		ask : 'Cầu thủ đầu tiên cấp bến ARSENAL hè 2017?',
+		choice :['A: Cristiano Ronaldo','B: Sead Kolašinac','C: Mourinho','D: Sir Alex'],
+		key : 'B'
+	}
+	var q3={
+		ask : 'ARSENAL chuyển đến sân EMIRATES từ năm nào?',
+		choice :['A: 2000','B: 2010','C: 2018','D: 2006'],
+		key : 'D'
+	}
+	var q4={
+		ask : 'Sân cũ của ARSENAL là sân nào?',
+		choice :['A: Highbury','B: Emirates','C: Nou Camp','D: White hart lane'],
+		key : 'A'
+	}
+	var list =[q0,q1,q2,q3,q4];
+	var kq;
+	var score=0;
+	var totalscore=0;
+	var d=1;
+	var click=0;
+	function reset() {
+		var but = document.getElementsByTagName('button');
+		for (var i = 0; i < but.length; i++) {
+			but[i].style.color = 'black';
+			but[i].style.opacity ='0.6';
+		}
+	}
+	function changecolor(button) {
+		reset();
+		button.style.color = "#c70606";
+		button.style.opacity ="1";
+		kq=button.value;
+	}
+	function countscore(sr) {
+		if(sr == list[d-1].key){
+			score +=1;
+		}
+		return score;
+	}
+	function nextquiz() {
+		totalscore = countscore(kq);
+		reset();
+		click++;
+		if (click<=4) {
+			document.getElementById('ask').innerHTML=list[d].ask;
+			document.getElementById('A').innerHTML=list[d].choice[0];
+			document.getElementById('B').innerHTML=list[d].choice[1];
+			document.getElementById('C').innerHTML=list[d].choice[2];
+			document.getElementById('D').innerHTML=list[d].choice[3];
+			d++;
+			if (d===5) {
+				document.getElementById('next').innerHTML='Kết Quả';
+			}
+		}
+		else{
+			if (totalscore == 5) {
+				window.location.href='winner.html';
+			}
+			else{
+				document.getElementById('answer').style.display='none';
+				document.getElementById('ask').style.display='none';
+				document.getElementById('next').style.display='none';
+				document.getElementById('choilai').style.display='inline-block';
+				document.getElementById('lose').style.display='inline-block';
+				document.getElementById('text').innerHTML='SAI RỒI NHÉ AHIHI';
+			}
+		}
+	}
+	function choilai() {
+		window.location.reload();
+	}
+</script>
+</html>
