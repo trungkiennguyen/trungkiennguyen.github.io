@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Uchiha Card</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			overflow-y: scroll;
+		}
+		.wrap{
+			position: relative;
+			margin: auto;
+			padding: 15px;
+			max-width: 1265px;
+			max-height: 616px;
+			height: 100%;
+		}
+		img{
+			display: block;
+		}
+		.content{
+			position: relative;
+			overflow: auto;
+		}
+		.grid{
+			padding: 10px;
+		}
+		.card{
+			position: relative;
+			float: left;
+			margin-right: 20px
+		}
+		.card .front{
+			transform: rotateY(180deg);
+		}
+		.card .back{
+			transform: rotateY(0deg);
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		.card:hover .back,.front{
+			transform: scale(1.1);
+			box-shadow: 5px 5px 5px 0px #888888;
+		}
+		.card .front, .card .back{
+			transition: all 0.5s;
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden; 
+			-moz-backface-visibility: hidden;  
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="content">
+			<div class="grid">
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+//đảo mảng
+	function shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+var arr=['c1','c2','c3','c4','c5'];
+//
+$(function() {
+	arr = shuffle(arr);
+
+	var html = '';
+	for (var i=0; i<arr.length; i++){
+		html +='<div class= "card" data-name= "' +arr[i]+ '" onclick="overturn(this)" >' + '<div class= "front"><img src="img/'+arr[i]+'.jpg"/></div>' + '<div class= "back"><img src= "img/uchiha.jpg"/></div>' + '</div></div>'
+	};
+	$('.grid').append(html);
+	$('.grid').append('<div style="clear: both;"></div>');
+});
+function overturn(card) {
+	$(card).children('.back').css('transform', 'rotateY(180deg)');
+	$(card).children('.front').css('transform', 'rotateY(0deg)');
+}
+</script>
+</html>
