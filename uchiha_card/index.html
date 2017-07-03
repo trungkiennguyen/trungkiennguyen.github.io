@@ -9,12 +9,12 @@
 			box-sizing: border-box;
 		}
 		body{
+			background-image: url(http://wallpapercave.com/wp/jUfGAcI.jpg);
 			margin: 0;
 			padding: 0;
 			overflow-y: scroll;
 		}
 		.wrap{
-			position: relative;
 			margin: auto;
 			padding: 15px;
 			max-width: 1265px;
@@ -25,7 +25,6 @@
 			display: block;
 		}
 		.content{
-			position: relative;
 			overflow: auto;
 		}
 		.grid{
@@ -47,9 +46,12 @@
 		}
 		.card:hover .back,.front{
 			transform: scale(1.1);
-			box-shadow: 5px 5px 5px 0px #888888;
+			-webkit-box-shadow: 0px 0px 33px 3px rgba(92,87,92,1);
+			-moz-box-shadow: 0px 0px 33px 3px rgba(92,87,92,1);
+			box-shadow: 0px 0px 33px 3px rgba(92,87,92,1);
 		}
 		.card .front, .card .back{
+			cursor: pointer;
 			transition: all 0.5s;
 			backface-visibility: hidden;
 			-webkit-backface-visibility: hidden; 
@@ -64,11 +66,20 @@
 			</div>
 		</div>
 	</div>
+	<audio id="choice">
+		<source src="mp3/click.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="false">
+		<source src="mp3/false.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="true">
+		<source src="mp3/true.mp3" type="audio/mpeg">
+	</audio>
 </body>
 <script>
 //đảo mảng
-	function shuffle(array) {
-		var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -86,13 +97,15 @@
     return array;
 }
 var arr=['c1','c2','c3','c4','c5'];
+var current=null;
 //
 $(function() {
+	arr=arr.concat(arr);
 	arr = shuffle(arr);
 
 	var html = '';
 	for (var i=0; i<arr.length; i++){
-		html +='<div class= "card" data-name= "' +arr[i]+ '" onclick="overturn(this)" >' + '<div class= "front"><img src="img/'+arr[i]+'.jpg"/></div>' + '<div class= "back"><img src= "img/uchiha.jpg"/></div>' + '</div></div>'
+		html +='<div style="pointer-events: auto;" class= "card" data-name= "' +arr[i]+ '" onclick="overturn(this)" >' + '<div class= "front"><img src="img/'+arr[i]+'.jpg"/></div>' + '<div class= "back"><img src= "img/uchiha.jpg"/></div>' + '</div></div>'
 	};
 	$('.grid').append(html);
 	$('.grid').append('<div style="clear: both;"></div>');
@@ -100,6 +113,32 @@ $(function() {
 function overturn(card) {
 	$(card).children('.back').css('transform', 'rotateY(180deg)');
 	$(card).children('.front').css('transform', 'rotateY(0deg)');
+	document.getElementById('choice').play();
+	$(card).css('pointer-events', 'none');
+	if (!current) {
+		current=$(card);
+	} else{
+		if (current.attr('data-name') != $(card).attr('data-name')) {
+			setTimeout(function(){
+				document.getElementById('false').play();
+				$(card).children('.back').css('transform', 'rotateY(0deg)');
+				$(card).children('.front').css('transform', 'rotateY(180deg)');
+				current.children('.back').css('transform', 'rotateY(0deg)');
+				current.children('.front').css('transform', 'rotateY(180deg)');
+				$(card).css('pointer-events', 'auto');
+				current.css('pointer-events', 'auto');
+				current=null;
+			},500);
+		}
+		else{
+			setTimeout(function() {
+				document.getElementById('true').play();
+				$(card).css('opacity', '0');
+				current.css('opacity', '0');
+				current=null;
+			},500);
+		}
+	}
 }
 </script>
 </html>
