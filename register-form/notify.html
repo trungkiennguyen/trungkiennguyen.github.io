@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notify</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&amp;subset=vietnamese" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .wrap{
+        width: 500px;
+        margin: auto;
+        background-color: #24323D;
+    }
+    h1,h3{
+        text-align: center;
+        color: #bfbfbf;
+    }
+    table{
+        color: #ffffff;
+        margin-left: 100px;
+        margin-top: 50px;
+        padding-bottom: 38px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Đăng Ký Thành Công</h1>
+        <h3>Thông tin tài khoản</h3>
+        <table>
+            <tr>
+                <td>Họ Tên:</td>
+                <td id="name"></td>
+            </tr>
+            <tr>
+                <td>Ngày Sinh:</td>
+                <td id="date"></td>
+            </tr>
+            <tr>
+                <td>Giới Tính:</td>
+                <td id="sex"></td>
+            </tr>
+            <tr>
+                <td>Địa Chỉ:</td>
+                <td id="address"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td id="email"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    $(function () {
+        // Firefox 44+, Opera 36+ and Chrome 49+
+        var url = (new URL(location)).searchParams;
+        $("#name").html(url.get('name'));
+        $("#date").html(url.get('date') + "/" + url.get('month') + "/" + url.get('year'));
+        $("#sex").html(url.get('gender'));
+        $("#address").html(url.get('address'));
+        $("#email").html(url.get('email'));
+    })
+
+</script>
+
+</html>

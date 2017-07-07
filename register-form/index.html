@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&amp;subset=vietnamese" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .register {
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            background-color: #24323D;
+        }
+
+        h1 {
+            color: #ffffff;
+            padding-top: 20px;
+        }
+
+        .box {
+            height: 50px;
+            width: 68%;
+            background-color: #24323D;
+            margin-bottom: 20px;
+            border: 1px solid #757373;
+            text-indent: 10px;
+            color: #ffffff;
+        }
+
+        label {
+            color: #ffffff;
+        }
+
+        select {
+            height: 30px;
+            width: 110.5px;
+            background-color: #24323D;
+            color: #bebcbc;
+            border: 1px solid #757373;
+            margin-bottom: 20px;
+        }
+
+        #login {
+            background-color: #1AB188;
+            border: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 50px;
+            width: 50%;
+            font-size: 25px;
+            color: #eaeaea;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <h1>ĐĂNG KÝ</h1>
+        <form method="GET" action="notify.html">
+            <input type="text" name="name" placeholder="Họ tên" class="box"></br>
+            <input type="text" name="email" placeholder="Email" class="box"><br>
+            <input type="password" name="password" placeholder="Password" class="box"><br>
+            <select name="date" id="date">
+                
+            </select>
+            <select name="month" id="month">
+                
+            </select>
+            <select name="year" id="year">
+                </select><br>
+            <input type="text" name="phone" placeholder="Số Điện Thoại" class="box"><br>
+            <input type="text" name="address" placeholder="Địa Chỉ" class="box"><br>
+            <input type="radio" name="gender" value="male" id="check"><label for="nam">Nam</label>
+            <input type="radio" name="gender" value="female" id="check"><label for="nu">Nữ</label><br>
+            <input type="submit" name="" value="Đăng Nhập" id="login">
+        </form>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        $('#year').append('<option>Năm Sinh</option>')
+        for (var i = 1960; i < 2010; i++) {
+            var option = '';
+            $('#year').append('<option value="' + i + '">' + i + '</option>')
+        }
+        $('#date').append('<option>Ngày</option>')
+        for (var i = 1; i < 32; i++) {
+            var option = '';
+            $('#date').append('<option value="' + i + '">' + i + '</option>')
+        }
+        $('#month').append('<option>Tháng</option>')
+        for (var i = 1; i < 13; i++) {
+            var option = '';
+            $('#month').append('<option value="' + i + '">' + i + '</option>')
+        }
+    })
+
+</script>
+
+</html>
