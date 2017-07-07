@@ -20,7 +20,7 @@
         }
 
         .register {
-            width: 500px;
+            width: 50%;
             margin: auto;
             text-align: center;
             background-color: #24323D;
@@ -33,25 +33,34 @@
 
         .box {
             height: 50px;
-            width: 68%;
+            width: 60%;
             background-color: #24323D;
-            margin-bottom: 20px;
+            /*margin-top: 20px;*/
             border: 1px solid #757373;
             text-indent: 10px;
             color: #ffffff;
+        }
+
+        .error {
+            color: red;
         }
 
         label {
             color: #ffffff;
         }
 
+        #choose {
+            
+            text-align: center;
+        }
+
         select {
+
             height: 30px;
-            width: 110.5px;
+            width: 20%;
             background-color: #24323D;
             color: #bebcbc;
             border: 1px solid #757373;
-            margin-bottom: 20px;
         }
 
         #login {
@@ -70,22 +79,29 @@
 <body>
     <div class="register">
         <h1>ĐĂNG KÝ</h1>
-        <form method="GET" action="notify.html">
-            <input type="text" name="name" placeholder="Họ tên" class="box"></br>
-            <input type="text" name="email" placeholder="Email" class="box"><br>
-            <input type="password" name="password" placeholder="Password" class="box"><br>
-            <select name="date" id="date">
+        <form method="GET" action="notify.html" id="form-register">
+            <span class="error error-name"></span><br>
+            <input type="text" name="name" placeholder="Họ tên" class="box" id="name"><br>
+            <span class="error error-email"></span><br>
+            <input type="text" name="email" placeholder="Email" class="box" id="email"><br>
+            <span class="error error-pw"></span><br>
+            <input type="password" name="password" placeholder="Password" class="box" id="password"><br>
+            <span class="error error-choose"></span><br>
+            <div id="choose"><select name="date" id="date">
                 
             </select>
-            <select name="month" id="month">
+                <select name="month" id="month">
                 
             </select>
-            <select name="year" id="year">
-                </select><br>
-            <input type="text" name="phone" placeholder="Số Điện Thoại" class="box"><br>
+                <select name="year" id="year">
+                </select></div>
+            <span class="error error-phone"></span><br>
+            <input type="text" name="phone" placeholder="Số Điện Thoại" class="box" id="phone"><br>
+            <span class="error error-address"></span><br>
             <input type="text" name="address" placeholder="Địa Chỉ" class="box"><br>
-            <input type="radio" name="gender" value="male" id="check"><label for="nam">Nam</label>
-            <input type="radio" name="gender" value="female" id="check"><label for="nu">Nữ</label><br>
+            <span class="error error-gender"></span><br>
+            <input type="radio" name="gender" value="Nam" id="nam"><label for="nam">Nam</label>
+            <input type="radio" name="gender" value="Nữ" id="nu"><label for="nu">Nữ</label><br>
             <input type="submit" name="" value="Đăng Nhập" id="login">
         </form>
     </div>
@@ -93,21 +109,75 @@
 </body>
 <script>
     $(function () {
-        $('#year').append('<option>Năm</option>')
-        for (var i = 1960; i < 2010; i++) {
+        $('#year').append('<option value="default">Năm</option>')
+        for (var i = 1975; i < 2010; i++) {
             var option = '';
             $('#year').append('<option value="' + i + '">' + i + '</option>')
         }
-        $('#date').append('<option>Ngày</option>')
+        $('#date').append('<option value="default">Ngày</option>')
         for (var i = 1; i < 32; i++) {
             var option = '';
             $('#date').append('<option value="' + i + '">' + i + '</option>')
         }
-        $('#month').append('<option>Tháng</option>')
+        $('#month').append('<option value="default">Tháng</option>')
         for (var i = 1; i < 13; i++) {
             var option = '';
             $('#month').append('<option value="' + i + '">' + i + '</option>')
         }
+    })
+    $('#form-register').on('submit', function () {
+        var valid = true;
+        if ($('#name').val().trim() == '') {
+            $('.error-name').text('! Họ tên để trống');
+            $('#name').css('border-color', 'red');
+            valid = false;
+        } else {
+            $('.error-name').text('');
+            $('#name').css('border-color', '#757373');
+        }
+        if ($('#email').val().match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/) == null) {
+            $('.error-email').text('! Email không hợp lệ');
+            $('#email').css('border-color', 'red');
+            valid = false;
+        } else {
+            $('.error-email').text('');
+            $('#email').css('border-color', '#757373');
+        }
+        if ($('#password').val().match(/^(?=.*\d).{4,8}$/) == null) {
+            $('.error-pw').text('! Mật khẩu không hợp lệ');
+            $('#password').css('border-color', 'red');
+            valid = false;
+        } else {
+            $('.error-pw').text('');
+            $('#password').css('border-color', '#757373');
+        }
+        if ($('#phone').val().match(/^\d{10,13}$/) == null) {
+            $('.error-phone').text('! SĐT không hợp lệ');
+            $('#phone').css('border-color', 'red');
+            valid = false;
+        } else {
+            $('.error-phone').text('');
+            $('#phone').css('border-color', '#757373');
+        }
+        if (!$('input[name=gender]:checked').val()) {
+            $('.error-gender').text('! Chọn giới tính');
+            valid = false;
+        } else {
+            $('.error-gender').text('');
+        }
+        if ($('#date').val() == 'default') {
+            $('.error-choose').text('!Chọn ngày sinh');
+            valid = false;
+        } else if($('#month').val() == 'default') {
+            $('.error-choose').text('!Chọn tháng sinh');
+            valid = false;
+        } else if($('#year').val() == 'default') {
+            $('.error-choose').text('!Chọn năm sinh');
+            valid = false;
+        } else{
+            $('.error-choose').text('');
+        }
+        return valid;
     })
 
 </script>
