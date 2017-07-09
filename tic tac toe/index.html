@@ -16,6 +16,26 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: red;
+            text-align: center;
+        }
+
+        button {
+            margin-top: 50px;
+            width: 100px;
+            height: 30px;
+            border: none;
+            background-color: #9f4517;
+            color: #b8b5b5;
+            opacity: 0;
         }
 
         .wrap {
@@ -86,7 +106,10 @@
 </head>
 
 <body>
+    <h1>TIC TAC TOE</h1>
+    <h2></h2>
     <div class="wrap">
+
         <div class="oco oco1" id="o1"></div>
         <div class="oco oco2" id="o2"></div>
         <div class="oco oco3" id="o3"></div>
@@ -97,6 +120,7 @@
         <div class="oco oco8" id="o8"></div>
         <div class="oco oco9" id="o9"></div>
     </div>
+    <button type="">Chơi Lại</button>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -115,72 +139,72 @@
         });
         function checXkWin() {
             if ($('#o1').html() == "X" && $('#o2').html() == "X" && $('#o3').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             } else if ($('#o4').html() == "X" && $('#o5').html() == "X" && $('#o6').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o7').html() == "X" && $('#o8').html() == "X" && $('#o9').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o1').html() == "X" && $('#o4').html() == "X" && $('#o7').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o2').html() == "X" && $('#o5').html() == "X" && $('#o8').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o3').html() == "X" && $('#o6').html() == "X" && $('#o9').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o1').html() == "X" && $('#o5').html() == "X" && $('#o9').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o3').html() == "X" && $('#o5').html() == "X" && $('#o7').html() == "X") {
-                alert("X Win nhé!!!");
-                window.location.reload();
+                $('h2').html('X Win!');
+                $('button').css("opacity","1");
             }
-            if ($('#o1').html() == "O" && $('#o2').html() == "O" && $('#o3').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+            else if ($('#o1').html() == "O" && $('#o2').html() == "O" && $('#o3').html() == "O") {
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             } else if ($('#o4').html() == "O" && $('#o5').html() == "O" && $('#o6').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o7').html() == "O" && $('#o8').html() == "O" && $('#o9').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o1').html() == "O" && $('#o4').html() == "O" && $('#o7').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o2').html() == "O" && $('#o5').html() == "O" && $('#o8').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o3').html() == "O" && $('#o6').html() == "O" && $('#o9').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o1').html() == "O" && $('#o5').html() == "O" && $('#o9').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
             else if ($('#o3').html() == "O" && $('#o5').html() == "O" && $('#o7').html() == "O") {
-                alert("O Win nhé!!!");
-                window.location.reload();
+                $('h2').html('O Win!');
+                $('button').css("opacity","1");
             }
         };
-        function checkDraw(){
-            if($('#o1').html() != "" && $('#o2').html() != "" && $('#o3').html() != "" && $('#o4').html() != "" && $('#o5').html() != "" && $('#o6').html() != "" && $('#o7').html() != "" && $('#o8').html() != "" && $('#o9').html() != ""){
-                alert("Hòa Minzy!");
-                window.location.reload();
+        function checkDraw() {
+            if ($('#o1').html() != "" && $('#o2').html() != "" && $('#o3').html() != "" && $('#o4').html() != "" && $('#o5').html() != "" && $('#o6').html() != "" && $('#o7').html() != "" && $('#o8').html() != "" && $('#o9').html() != "") {
+                $('h2').html('Hòa Minzy!');
+                $('button').css("opacity","1");
             }
         }
         $('.oco').mouseover(function () {
@@ -189,6 +213,9 @@
         $('.oco').mouseout(function () {
             $(this).css("background-color", "white");
         });
+        $('button').click(function(){
+            window.location.reload();
+        })
     })
 
 </script>
