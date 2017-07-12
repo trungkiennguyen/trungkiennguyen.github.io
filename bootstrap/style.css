@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=vietnamese');
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    padding: 0 ;
+    margin: 0 ;
+}
+.logo {
+    text-align: center;
+    padding-top: 20px;
+}
+.logo img{
+     max-width: 90px;
+    }
+.navbar-default {
+    margin-bottom: 0;
+    border: none;
+}
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background-color: black;
+    color: yellow;
+}
+.navbar-default .navbar-nav>li{
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+   @media screen and (max-width: 840px) { 
+    .navbar-default .navbar-nav>li{
+    margin-left: 25px;
+    margin-right: 25px;
+    }  
+} 
+@media screen and (max-width: 792px) { 
+    .navbar-default .navbar-nav>li{
+    margin-left: 20px;
+    margin-right: 20px;
+    }  
+}
+.navbar-default .navbar-nav>li>a{
+    color: white;
+}
+.navbar-default .navbar-nav>li:hover a,li{
+    color: yellow !important;
+    background-color: black !important;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #FDD700;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: black;
+}
+.navbar-default .navbar-toggle {
+    border-color: #FDD700;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FDD700;
+}
+hr{
+    height: 5px;
+    background-color: #FDD700;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border: none;
+}
+h1{
+    text-align: center;
+    color: black;
+}
+.img{
+    width: 100%;
+}
+img{
+    width: 60%;
+    transition: all 1s;
+}
+.monan{
+    text-align: center;
+}
+.row{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.namefood{
+    font-weight: bold;
+    /* margin-top: 10px; */
+    font-size: 20px;
+    display: inline-block;
+    transition: all 1s;
+}
+.row1{
+    margin-top: 20px;
+}
+.border-image{
+    width: 100%;
+    overflow: hidden;
+    transition: all 1s;
+}
+.monan:hover img{
+    transform: scale(1.1);
+}
+.monan:hover .namefood{
+    transform: scale(1.1);
+    color: #FDD700;
+}
+.monan:hover .border-image {
+    background-color: black;
+}
