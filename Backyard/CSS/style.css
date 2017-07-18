@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body{
     width: 100%;
     height: 100%;
@@ -25,11 +26,11 @@ body{
         color: white;
 }
 .intro h1{
-    font-size: 80px;
+    font-size: 60px;
 }
 .intro p{
-    font-weight: 600;
-    padding-bottom: 50px;
+    font-weight: 300;
+    padding-bottom: 10px;
 }
 .intro a{
     text-decoration: none;
@@ -88,7 +89,7 @@ body{
     padding-top: 3px;
 } 
 .my-navbar{
-    background: black;
+    background: transparent;
     border: none;
     border-radius: 0;
     margin-bottom: 0px;
@@ -123,6 +124,9 @@ div#bs-example-navbar-collapse-1 {
 }
 
 /*features  */
+.about-section{
+    margin-bottom: 200px !important;
+}
 .text-center{
     text-align: center;
 }
@@ -146,6 +150,8 @@ div#bs-example-navbar-collapse-1 {
 .flipper{
     font-size: 13px;
     margin-top: 60px;
+    margin-bottom: 100px;
+    position: relative;
 }
 .flip-ico{
     background-color: #428bf7;
@@ -160,13 +166,135 @@ div#bs-example-navbar-collapse-1 {
     color: #ffffff;
     line-height: 1.8;
     position: absolute;
-    top: -45px;
+     top: -45px;
     left: 135px;
 }
-.box-infor{
+.front .box-info{
+    background-color: #ffffff;
     border: 3px solid #428bf7;
-    position: relative;
+    height: 200px;
+    font-family: 'Open Sans', sans-serif;
+}
+.front{
+    width: 100%;
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; 
+    -moz-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    transform: rotateY(0deg);
+}
+.front .info-line{
+    width: 55%;
+    border-top: 2px solid #428bf7;
+    margin: auto;
+    margin-top: 60px;
 }
 .heading-content{
-    padding-top: 40px;
+    font-weight: bold;
+}
+.front .info-line.bottom{
+    margin-top: 25px;
+}
+.back .info-line{
+    width: 55%;
+    border-top: 2px solid #ffffff;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.back .info-line.bottom{
+    margin-top: 25px;
+}
+.back{
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; 
+    -moz-backface-visibility: hidden;
+    width: 100%;
+    transform: rotateY(90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+.back .box-info{
+    border: 3px solid #428bf7;
+    height: 200px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #428bf7;
+}
+.back p{
+    color: #ffffff;
+}
+.flipper:hover .back{
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    transform: rotateY(0deg);
+}
+.flipper:hover .front{
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    transform: rotateY(180deg);
+}
+.about-section{
+    margin-bottom: 50px;
+}
+
+
+
+.heading-background{
+    background-image: url('../img/sinewave.png');
+    height: 100%;
+    position: relative;
+    text-align: center;
+    color: #06286a;
+}
+.heading-background > .overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.8;
+    background-color: #428bf7;
+}
+.heading-background h2{
+        padding: 5px 0 10px 0px;
+}
+.heading-background p{   
+    margin: 0 0 20px;
+}
+.info-features{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.info-features i{
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #428bf7;
+    color: #428bf7;
+    float: left;
+    text-align: center;
+    margin-right: 10px;
+    line-height: 1.6;
+}
+.caro{
+    padding: 20px;
+    color: #6E6E6E;
+}
+.caro h3{
+    font-weight: 900;
+}
+.caro p{
+    font-size: 15px;
 }
