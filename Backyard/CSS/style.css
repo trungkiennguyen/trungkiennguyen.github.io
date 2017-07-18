@@ -94,6 +94,9 @@ body{
     border-radius: 0;
     margin-bottom: 0px;
 }
+.brg-menu{
+    background: black;
+}
 .my-navbar a:hover{
     color: white;
 }

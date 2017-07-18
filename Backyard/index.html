@@ -35,11 +35,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-active"><a href="#">HOME</a></li>
-          <li><a href="#">FEATURES</a></li>
-          <li><a href="#">PRICING</a></li>
-          <li><a href="#">TESTIMONIAL</a></li>
-          <li><a href="#">CONTACT</a></li>
+          <li class="nav-active" id="mn1"><a href="#">HOME</a></li>
+          <li id="mn2"><a href="#">FEATURES</a></li>
+          <li id="mn3"><a href="#">PRICING</a></li>
+          <li id="mn4"><a href="#">TESTIMONIAL</a></li>
+          <li id="mn5"><a href="#">CONTACT</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -54,10 +54,10 @@
           <div class="col-sm-7">
             <div class="intro">
               <!-- <a href="#"><img src="./img/logo.png" alt="logo" class="logo"></a> -->
-              <h1 class="wow slideInLeft"  data-wow-duration="1s">Powerful Web Hosting</h1>
-              <p class="wow slideInLeft"  data-wow-duration="1s">High-growth businesses & moderate web traffic,For your website. Get web hosting and get FreeDomain Name</p>
+              <h1 class="wow slideInLeft" data-wow-duration="1s">Powerful Web Hosting</h1>
+              <p class="wow slideInLeft" data-wow-duration="1s">High-growth businesses & moderate web traffic,For your website. Get web hosting and get FreeDomain Name</p>
 
-              <span class="wow flipInY"  data-wow-duration="2.5s"><a href="#" class="btn-see">SEE PRICING</a></span>
+              <span class="wow flipInY" data-wow-duration="2.5s"><a href="#" class="btn-see">SEE PRICING</a></span>
             </div>
 
           </div>
@@ -265,6 +265,22 @@
 <script type="text/javascript" src="./vendor/animate/wow.min.js"></script>
 <script>
   new WOW().init();
+
+</script>
+<script>
+  var num1 = 550; //number of pixels before modifying styles
+  $(window).bind('scroll', function () {
+    if ($(window).scrollTop() > num1) {
+      $('.my-navbar').addClass('brg-menu');
+      $('#mn1').removeClass('nav-active');
+      $('#mn2').addClass('nav-active');
+    }
+    else{
+      $('#mn1').addClass('nav-active');
+      $('#mn2').removeClass('nav-active');
+      $('.my-navbar').removeClass('brg-menu');
+    }
+  });
 
 </script>
 
